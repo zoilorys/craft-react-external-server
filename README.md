@@ -1,8 +1,11 @@
 # Craft React
 
-Craft CMS React Renderer lets you implement React.js client and server-side rendering in your Craft CMS projects.
+Craft CMS React Renderer lets you implement React.js client and server-side rendering in your Craft CMS projects, leveraging external node.js server to render.
 
-It is an implementation of [ReactBundle](https://github.com/Limenius/ReactRenderer) for CraftCMS. For a complete documentation of the core functionality and client examples, as well as problems related to the Renderer itself, please check out [ReactBundle](https://github.com/Limenius/ReactRenderer) or [Symfony React Sandbox](https://github.com/Limenius/symfony-react-sandbox).
+This is a fork of Alexandre Kilian's project [craft-react](https://github.com/AlexandreKilian/craft-react), that is implemented using `PhpExecJsReactRenderer`, which requires `php-v8js` extension in order to run, which can be pain to setup in certain cases.
+This is a rewrite of the plugin, leveraging `ExternalServerReactRenderer`, which requires you to run external node.js server to render for you, which you have to run separately, but you can just use [nodemon](https://github.com/remy/nodemon) to handle restarts, so it's barely an issue to maintain it.
+Check [Symfony React Sandbox](https://github.com/Limenius/symfony-react-sandbox) for an example of this external server.
+For a complete documentation of the core functionality and client examples, as well as problems related to the Renderer itself, please check out [ReactBundle](https://github.com/Limenius/ReactRenderer) or [Symfony React Sandbox](https://github.com/Limenius/symfony-react-sandbox).
 
 ## Why Server-Side rendering?
 By rendering your react components on the server, you not only increase performance and search engine readability for SEO but also enable users with slower connections to be able to access your information before your client bundle has completely loaded.
@@ -19,19 +22,19 @@ To install the plugin, follow these instructions:
 
 2. Then tell Composer to load the plugin: 
 
-        composer require alexk/craft-react
+        composer require zoilorys/craft-react-external-server
         
 In the Control Panel, go to Settings → Plugins and click the “Install” button for Craft React.
 
 ## Setup
 
-In the plugin settings, add the following entries:
+In the plugin settings, add the following entry:
 
 `Environment: "client_side", "server_side" or "both"`
 
-`Server Bundle: "PATH_TO_SERVER_BUNDLE"`
-
 or override the settings globally in `config/react.php`
+
+And add `NODE_SOCK_PATH` to .env with your `node.sock` file location (refer to [Symfony React Sandbox/external-server.js](https://github.com/Limenius/symfony-react-sandbox/blob/master/external-server.js#L6) for usage)
 
 
 ```php
@@ -39,7 +42,6 @@ or override the settings globally in `config/react.php`
 
 return [
     'env' => 'client_side',
-    'serverBundle' => 'app/server-bundle.js',
 ];
 
 ```

@@ -5,7 +5,7 @@ use Craft;
 use craft\web\twig\variables\CraftVariable;
 use yii\base\Event;
 
-use Limenius\ReactRenderer\Renderer\PhpExecJsReactRenderer;
+use Limenius\ReactRenderer\Renderer\ExternalServerReactRenderer;
 use Limenius\ReactRenderer\Twig\ReactRenderExtension;
 
 use react\context\CraftContextProvider;
@@ -22,10 +22,10 @@ class Plugin extends \craft\base\Plugin
         
         if (Craft::$app->request->getIsSiteRequest()) {
             $env = $this->getSettings()->env;
-            $serverBundle = CRAFT_BASE_PATH.DIRECTORY_SEPARATOR.$this->getSettings()->serverBundle;
+            $sockPath = getenv('NODE_SOCK_PATH');
 
             $contextProvider = new CraftContextProvider(Craft::$app->request);
-            $renderer = new PhpExecJsReactRenderer($serverBundle, $env != 'client_side', $contextProvider);
+            $renderer = new ExternalServerReactRenderer($sockPath, $env != 'client_side', $contextProvider);
             $ext = new ReactRenderExtension($renderer, $contextProvider, $env);
             $ext2 = new SerializerExtension();
             Craft::$app->view->registerTwigExtension($ext2);
