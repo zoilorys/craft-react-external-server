@@ -1,4 +1,4 @@
-# Craft React
+# Craft React External Server
 
 Craft CMS React Renderer lets you implement React.js client and server-side rendering in your Craft CMS projects, leveraging external node.js server to render.
 
