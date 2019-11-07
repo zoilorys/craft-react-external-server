@@ -2,8 +2,6 @@
 namespace react;
 
 use Craft;
-use craft\web\twig\variables\CraftVariable;
-use yii\base\Event;
 
 use Limenius\ReactRenderer\Renderer\ExternalServerReactRenderer;
 use Limenius\ReactRenderer\Twig\ReactRenderExtension;

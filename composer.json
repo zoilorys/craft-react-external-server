@@ -10,7 +10,7 @@
     },
     "autoload": {
       "psr-4": {
-        "react-external-server\\": "src/"
+        "react\\": "src/"
       }
     },
     "license": "MIT",
