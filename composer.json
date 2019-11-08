@@ -1,7 +1,7 @@
 {
   "name": "zoilorys/craft-react-external-server",
   "description": "Client and Server-side React rendering for CraftCMS using external server",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "type": "craft-plugin",
   "keywords": [
     "react",

@@ -39,7 +39,7 @@ class Plugin extends \craft\base\Plugin
 
     protected function settingsHtml()
     {
-        return \Craft::$app->getView()->renderTemplate('react/settings', [
+        return \Craft::$app->getView()->renderTemplate('react-external-server/settings', [
             'settings' => $this->getSettings()
         ]);
     }
