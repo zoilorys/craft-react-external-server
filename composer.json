@@ -1,23 +1,29 @@
 {
-    "name": "zoilorys/craft-react-external-server",
-    "description": "Client and Server-side React rendering for CraftCMS using external server",
-    "version": "1.3.1",
-    "type": "craft-plugin",
-    "keywords": ["react", "reactjs", "isomorphic", "twig", "craft"],
-    "require": {
-      "craftcms/cms": "^3.0",
-      "limenius/react-renderer": "^2.1.0"
-    },
-    "autoload": {
-      "psr-4": {
-        "react\\": "src/"
-      }
-    },
-    "license": "MIT",
-    "extra": {
-      "handle": "react-external-server",
-      "name": "React SSR for Craft",
-      "developer": "Illia Puzanov",
-      "developerUrl": "https://github.com/zoilorys"
+  "name": "zoilorys/craft-react-external-server",
+  "description": "Client and Server-side React rendering for CraftCMS using external server",
+  "version": "1.3.2",
+  "type": "craft-plugin",
+  "keywords": [
+    "react",
+    "reactjs",
+    "isomorphic",
+    "twig",
+    "craft"
+  ],
+  "require": {
+    "craftcms/cms": "^3.0",
+    "limenius/react-renderer": "^2.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "zoilorys\\craft\\ReactExternalServer\\": "src/"
     }
+  },
+  "license": "MIT",
+  "extra": {
+    "handle": "react-external-server",
+    "name": "React SSR for Craft",
+    "developer": "Illia Puzanov",
+    "developerUrl": "https://github.com/zoilorys"
   }
+}

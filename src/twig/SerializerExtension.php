@@ -1,6 +1,7 @@
 <?php
 
-namespace react\twig;
+namespace zoilorys\craft\ReactExternalServer\twig;
+
 use Craft;
 
 class SerializerExtension extends \Twig_Extension
@@ -15,10 +16,11 @@ class SerializerExtension extends \Twig_Extension
         );
     }
 
-    public function serialize($data, $schema = 'entry', $group = 'default') {
+    public function serialize($data, $schema = 'entry', $group = 'default')
+    {
         $dir = Craft::getAlias('@config/react');
         $path = $dir . "/$schema.php";
-        if(!isset($this->cache[$schema])){
+        if (!isset($this->cache[$schema])) {
             $this->cache[$schema] = include_once($path);
         }
 

@@ -1,14 +1,15 @@
 <?php
-namespace react;
+
+namespace zoilorys\craft\ReactExternalServer;
 
 use Craft;
 
 use Limenius\ReactRenderer\Renderer\ExternalServerReactRenderer;
 use Limenius\ReactRenderer\Twig\ReactRenderExtension;
 
-use react\context\CraftContextProvider;
-use react\twig\SerializerExtension;
-use react\models\Settings;
+use zoilorys\craft\ReactExternalServer\context\CraftContextProvider;
+use zoilorys\craft\ReactExternalServer\twig\SerializerExtension;
+use zoilorys\craft\ReactExternalServer\models\Settings;
 
 class Plugin extends \craft\base\Plugin
 {
@@ -17,7 +18,7 @@ class Plugin extends \craft\base\Plugin
     public function init()
     {
         parent::init();
-        
+
         if (Craft::$app->request->getIsSiteRequest()) {
             $env = $this->getSettings()->env;
             $sockPath = getenv('NODE_SOCK_PATH');
@@ -28,7 +29,6 @@ class Plugin extends \craft\base\Plugin
             $ext2 = new SerializerExtension();
             Craft::$app->view->registerTwigExtension($ext2);
             Craft::$app->view->registerTwigExtension($ext);
-
         }
     }
 

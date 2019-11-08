@@ -1,12 +1,13 @@
 <?php
 
-namespace react\models;
+namespace zoilorys\craft\ReactExternalServer\models;
 
 
 use craft\base\Model;
 
 
-class Settings extends Model {
+class Settings extends Model
+{
 
     public $env = 'client_side';
 
